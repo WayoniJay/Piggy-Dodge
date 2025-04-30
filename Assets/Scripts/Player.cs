@@ -16,7 +16,7 @@ namespace AG2189
     
         void Update()
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButton(0))
             { 
                 Vector3 touchPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
@@ -36,7 +36,9 @@ namespace AG2189
                 rb.linearVelocity = Vector2.zero;
             }
 
-
+            Vector3 playerPos = transform.position;
+            playerPos.x = Mathf.Clamp(playerPos.x, -2.25f, 2.25f);
+            transform.position = playerPos;
         }
     } 
 }
