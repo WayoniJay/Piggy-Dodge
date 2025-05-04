@@ -39,7 +39,7 @@ namespace AG2189
             }
 
             Vector3 playerPos = transform.position;
-            playerPos.x = Mathf.Clamp(playerPos.x, -1.9f, 1.9f);
+            playerPos.x = Mathf.Clamp(playerPos.x, -1.98f, 1.98f);
             transform.position = playerPos;
 
         }
