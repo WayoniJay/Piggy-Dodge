@@ -1,8 +1,10 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class GameManager : MonoBehaviour
 {
+    private const string HIGH_SCORE_KEY = "High Score";
 
     public GameObject obstacle;
     public float maxX;
@@ -13,12 +15,18 @@ public class GameManager : MonoBehaviour
     
 
     public GameObject tapText;
-    public TextMeshProUGUI scoreText;
+    public TMP_Text scoreText;
+    public TMP_Text highScoreText;
 
-    int score = 0;
-    
-   
+    private int score;
+    private int _highScore;
 
+
+    private void Start()
+    {
+        _highScore = PlayerPrefs.GetInt(HIGH_SCORE_KEY, 0);
+        UpdateUI();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -46,7 +54,19 @@ public class GameManager : MonoBehaviour
         Instantiate( obstacle, spawnPos, Quaternion.identity );
 
         score++;
+        if (score > _highScore)
+        {
+            _highScore = score;
+            PlayerPrefs.SetInt(HIGH_SCORE_KEY, _highScore);
+        }
 
-        scoreText.text = "Score: " + score.ToString();
+        UpdateUI();
+    }
+
+    private void UpdateUI()
+    {
+        scoreText.text = $"<color=red>Score</color>: {score}";
+        highScoreText.text = $"<color=red>High score</color>: {_highScore}";
+
     }
 }

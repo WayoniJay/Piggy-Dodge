@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 
 namespace AG2189
@@ -48,8 +49,16 @@ namespace AG2189
         {
             if (collision.gameObject.tag == "Obstacle")
             {
-                SceneManager.LoadScene("Game");
+                // TODO: Add sound here (for .5 secs)
+                AudioManager.instance.PlaySFX(AudioManager.instance.hit);
+                StartCoroutine(nameof(ReloadScene));
             }
+        }
+
+        private IEnumerator ReloadScene()
+        {
+            yield return new WaitForSeconds(0.5f);
+            SceneManager.LoadScene("Game");
         }
     }
 }
