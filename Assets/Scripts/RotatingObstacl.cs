@@ -9,7 +9,7 @@ namespace AG2189
 
         private void Start()
         {
-            fallSpeed = 200f;
+            fallSpeed = 4f;
         }
 
         public override void Fall()

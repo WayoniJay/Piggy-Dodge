@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7008190394693362283}
   m_Layer: 0
   m_Name: RotatingObstacle
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -175,5 +175,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 0.77, y: 0.77}
   m_EdgeRadius: 0

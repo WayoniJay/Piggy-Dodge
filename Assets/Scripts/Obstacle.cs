@@ -14,7 +14,7 @@ namespace AG2189
 
         public virtual void Fall()
         {
-            transform.Translate(Vector2.down * fallSpeed * Time.deltaTime);
+            transform.Translate(Vector2.down * fallSpeed * Time.deltaTime, Space.World);
 
             if (transform.position.y < -Camera.main.orthographicSize - 1f)
             {

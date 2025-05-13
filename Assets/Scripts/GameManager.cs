@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     private const string HIGH_SCORE_KEY = "High Score";
 
-    public GameObject obstacle;
+    //public GameObject obstacle;
     public float maxX;
     public Transform spawnPoint;
     public float spawnRate;
@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
 
         spawnPos.x = Random.Range(-maxX, maxX);
 
-        Instantiate( obstacle, spawnPos, Quaternion.identity );
+        //Instantiate( obstacle, spawnPos, Quaternion.identity );
 
         score++;
         if (score > _highScore)

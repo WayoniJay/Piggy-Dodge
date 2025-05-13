@@ -5,7 +5,7 @@ namespace AG2189
 {
     public class ObstacleSpawner : MonoBehaviour
     {
-
+        public Transform spawnPoint;
         public SimpleObstacle simpleObstaclePrefab;
         public RotatingObstacle rotatingObstaclePrefab;
 
@@ -48,7 +48,7 @@ namespace AG2189
             //Obstacle prefab = Random.value > 0.5f ? simpleObstaclePrefab : rotatingObstaclePrefab;
             //GameObject prefab = Random.value > 0.5f ? simpleObstaclePrefab : rotatingObstaclePrefab;
             float x = Random.Range(-2.5f, 2.5f);
-            Vector2 spawnPos = new Vector2(x, Camera.main.orthographicSize + 1f);
+            Vector3 spawnPos = new Vector3(x, Camera.main.orthographicSize + 1f,-0.01f);
 
             Obstacle newObstacle = Instantiate(prefab, spawnPos, Quaternion.identity);
             obstacles.Add(newObstacle);
