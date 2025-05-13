@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public Transform spawnPoint;
     public float spawnRate;
 
-    bool gameStarted = false;
+    public bool gameStarted = false;
     
 
     public GameObject tapText;

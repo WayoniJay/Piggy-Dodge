@@ -8,6 +8,7 @@ namespace AG2189
         public Transform spawnPoint;
         public SimpleObstacle simpleObstaclePrefab;
         public RotatingObstacle rotatingObstaclePrefab;
+        public GameManager gameManager;
 
         //public Obstacle simpleObstaclePrefab;
         //public Obstacle rotatingObstaclePrefab;
@@ -21,23 +22,27 @@ namespace AG2189
 
         void Update()
         {
-            timer += Time.deltaTime;
-            if (timer >= spawnInterval)
-            {
-                SpawnRandomObstacle();
-                timer = 0f;
-            }
 
-            // Communicate with each obstacle
-            for (int i = obstacles.Count - 1; i >= 0; i--)
+            if (gameManager.gameStarted)
             {
-                if (obstacles[i] == null)
+                timer += Time.deltaTime;
+                if (timer >= spawnInterval)
                 {
-                    obstacles.RemoveAt(i); // Clean up destroyed obstacles
+                    SpawnRandomObstacle();
+                    timer = 0f;
                 }
-                else
+
+                // Communicate with each obstacle
+                for (int i = obstacles.Count - 1; i >= 0; i--)
                 {
-                    obstacles[i].Fall();
+                    if (obstacles[i] == null)
+                    {
+                        obstacles.RemoveAt(i); // Clean up destroyed obstacles
+                    }
+                    else
+                    {
+                        obstacles[i].Fall();
+                    }
                 }
             }
         }
